@@ -1,0 +1,16 @@
+<div class="btn btn-primary">
+    <button  routerLink ="/home" mat-button  mat-dialog-close class="btn btn-primary searchButton" type="button">Back to home</button>
+</div>
+<div class="container">
+    
+    <div class="imgmargin" *ngFor = "let displayImage of favImage; let i=index;" style="display: inline-block">
+        <h4>List Name: {{displayImage.name}}</h4>
+        <h4>Description: {{'Description'}}</h4>
+        <img src='{{displayImage.imageUrl}}' style="height:200px; width:200px;" (click)="downloadFav(i);"/>
+        <button mat-raised-button mat-dialog-close (click)="editData(displayImage)" class="saveBtn btn btn-primary">Edit</button>
+    </div>
+    <div *ngIf ="editMode">
+        List Name: <input class="search" mat-input [(ngModel)]="listName.name" name="search"  placeholder="Enter List Name" required>
+        Description: <input class="search" mat-input [(ngModel)]="listName.name" name="search"  placeholder="Enter List Name" required>
+    </div>
+</div>
